@@ -6,29 +6,12 @@ const TableHeader = () => {
     <thead>
       <tr>
         <th>Name</th>
-        <th>Job</th>
+        <th>Occupation</th>
         <th />
       </tr>
     </thead>
   );
 };
-
-// const TableBody = props => {
-//   const { personnel } = props;
-//   return (
-//     <tbody>
-//       {personnel.map((entry, index) => (
-//         <tr key={entry.id}>
-//           <td>{entry.name}</td>
-//           <td>{entry.occupation}</td>
-//           <td>
-//             <button onClick={() => props.removePerson(index)}>Delete</button>
-//           </td>
-//         </tr>
-//       ))}
-//     </tbody>
-//   );
-// };
 
 class TableBody extends Component {
   render() {
@@ -52,15 +35,15 @@ class TableBody extends Component {
 
 class Table extends Component {
   render() {
-    const { personnel, removePerson } = this.props;
+    const { personnel, removePerson, handleSubmit } = this.props;
     return (
       <div>
-        <h4>I Am The Table</h4>
+        <h4>I Am The Table Component </h4>
         <table id="personnel">
           <TableHeader />
           <TableBody personnel={personnel} removePerson={removePerson} />
         </table>
-        <Form />
+        <Form handleSubmit={handleSubmit} />
       </div>
     );
   }

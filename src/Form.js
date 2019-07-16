@@ -5,7 +5,7 @@ class Form extends Component {
     super(props);
     this.initialState = {
       name: "",
-      job: ""
+      occupation: ""
     };
 
     this.state = this.initialState;
@@ -16,12 +16,17 @@ class Form extends Component {
     this.setState({ [name]: value });
   };
 
+  submitForm = () => {
+    this.props.handleSubmit(this.state);
+    this.setState(this.initialState);
+  };
+
   render() {
     const { name, occupation } = this.state;
 
     return (
       <div>
-        <h4>I Am The Form</h4>
+        <h4>I Am The Form Component</h4>
         <form>
           <label>Name</label>
           <input
@@ -34,10 +39,11 @@ class Form extends Component {
           <label>Occupation</label>
           <input
             type="text"
-            name="name"
+            name="occupation"
             value={occupation}
             onChange={this.handleChange}
           />
+          <input type="button" value="submit" onClick={this.submitForm} />
         </form>
       </div>
     );
