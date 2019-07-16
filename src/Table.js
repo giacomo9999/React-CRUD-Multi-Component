@@ -12,12 +12,16 @@ const TableHeader = () => {
 };
 
 const TableBody = props => {
+  const { personnel } = props;
   return (
     <tbody>
-      {props.personnel.map((entry, index) => (
+      {personnel.map((entry, index) => (
         <tr key={entry.id}>
           <td>{entry.name}</td>
           <td>{entry.occupation}</td>
+          <td>
+            <button onClick={() => props.removePerson(index)}>Delete</button>
+          </td>
         </tr>
       ))}
     </tbody>
@@ -28,9 +32,12 @@ class Table extends Component {
   render() {
     return (
       <div>
-        <table>
+        <table id="personnel">
           <TableHeader />
-          <TableBody personnel={this.props.personnel} />
+          <TableBody
+            personnel={this.props.personnel}
+            removePerson={this.props.removePerson}
+          />
         </table>
       </div>
     );
