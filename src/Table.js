@@ -34,6 +34,7 @@ class TableBody extends Component {
 }
 
 class Table extends Component {
+  state = { showEditForm: false };
   render() {
     const { personnel, removePerson, handleSubmit } = this.props;
     return (
