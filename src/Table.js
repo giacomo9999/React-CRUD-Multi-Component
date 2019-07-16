@@ -11,20 +11,18 @@ const TableHeader = () => {
   );
 };
 
-class TableBody extends Component {
-  render() {
-    return (
-      <tbody>
-        {this.props.personnel.map(entry => (
-          <tr key={entry.id}>
-            <td>{entry.name}</td>
-            <td>{entry.occupation}</td>
-          </tr>
-        ))}
-      </tbody>
-    );
-  }
-}
+const TableBody = props => {
+  return (
+    <tbody>
+      {props.personnel.map((entry, index) => (
+        <tr key={entry.id}>
+          <td>{entry.name}</td>
+          <td>{entry.occupation}</td>
+        </tr>
+      ))}
+    </tbody>
+  );
+};
 
 class Table extends Component {
   render() {

@@ -12,11 +12,18 @@ class App extends Component {
     ]
   };
 
+  removePerson = index => {
+    const { people } = this.state;
+    this.setState({
+      people: people.filter((entry, i) => i !== index)
+    });
+  };
+
   render() {
     return (
       <div className="container">
         <h2>I am the App Component</h2>
-        <Table personnel={this.state.people} />
+        <Table personnel={this.state.people} removePerson={this.removePerson}/>
       </div>
     );
   }
